@@ -1,4 +1,6 @@
 import React from 'react'
+import ShowHideChildren from './ShowHideChildren'
+import Toggle from './Toggle'
 import '../style.css'
 
 const RenderProps = props => {
@@ -14,6 +16,21 @@ const RenderProps = props => {
           Docs
         </a>
       </h1>
+      <ShowHideChildren>
+        <div>Here are the children</div>
+      </ShowHideChildren>
+
+      <Toggle render={(showContent, setShowContent) => {
+        return (
+          <div>
+            {showContent && <p>Hello</p>}
+            <button onClick={() => setShowContent(!showContent)}>
+              Do you thing
+          </button>
+          </div>
+        )
+      }}
+      />
     </section>
   )
 }
